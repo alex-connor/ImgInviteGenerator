@@ -1,9 +1,5 @@
 <?
-include('generator.php');
-header('Content-Disposition: attachment; filename="image.png"');
-
+include "generator.php";
 header ("Content-type: image/png");
-imagepng(gen($_GET['in']));
-
-
-?>
+header('Content-Disposition: attachment; filename="image.png"');
+imagepng(generateImage());

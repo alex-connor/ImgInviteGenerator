@@ -3,20 +3,16 @@ header('Content-Type: text/html; charset=utf-8');
 ?>
 
 <fieldset>
-   <legend>Get key</legend>
-	TEXT:
-	<input type="text" id="inp" size="50" onkeyup="document.getElementById('img').src='image.php?in='+this.value">
+   <legend>Get invite</legend>
+	<button onclick="document.getElementById('img').src='image.php?rand='+(Math.floor(Math.random()*999))">Обновити</button>
 	<br>
 	<br> IMG:
 	<img src="image.php?in=" id="img" onclick="window.open(this.src)" width="200" height="200">
 	<br> Клікни по картинці шоб скачати її.
 </fieldset>
 <fieldset>
-   <legend>Test key</legend>
+   <legend>Test invite</legend>
 	<form method="post" enctype="multipart/form-data" action="test.php">
-		TEXT:
-		<input type="text" name="KOD" value="<?php if(isset($_POST['KOD'])){echo $_POST['KOD'];} ?>" size="50">
-		<br> FILE:
 		<input type="hidden" name="UserID" value="<?php
 			$ip = $_SERVER['REMOTE_ADDR'];
 			$ua = $_SERVER['HTTP_USER_AGENT'];
@@ -27,7 +23,7 @@ header('Content-Type: text/html; charset=utf-8');
 			$UserID = rtrim($UserID,"=");
 			echo $UserID;
 ?>">
-		<input type="file" name="uploadfile">
+		<input type="file" name="uploadfile" style="width:300px;height:100px;background:#fc0;">
 		<br>
 		<button type="submit">SUBMIT</button>
 	</form>
